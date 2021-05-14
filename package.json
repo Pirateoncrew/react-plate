@@ -1,7 +1,7 @@
 {
   "name": "react-project-ssr",
   "version": "1.0.0",
-  "description": "",
+  "description": "react ssr boilerplate with typescript,scss and redux",
   "main": "index.js",
   "scripts": {
     "webpack:server": "webpack --config webpack.server.js --mode development --watch",
