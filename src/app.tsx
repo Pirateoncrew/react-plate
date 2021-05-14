@@ -1,24 +1,14 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { Switch, Route } from "react-router";
-import Home from "./pages/homePageComponent";
 import "./style.scss";
+import { renderRoutes } from "react-router-config";
 
-class App extends React.Component {
+class App extends React.Component<any> {
   constructor(props) {
     super(props);
   }
   render() {
-    return (
-      <Switch>
-        <Route
-          path="/"
-          render={(props) => (
-            // <Home props={...props}/>
-            <Home />
-          )}
-        />
-      </Switch>
-    );
+    return <Fragment>{renderRoutes(this.props.route.routes)}</Fragment>;
   }
 }
 

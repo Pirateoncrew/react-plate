@@ -10,5 +10,5 @@
     "esModuleInterop": true,
     "preserveConstEnums": true
   },
-  "include": ["./src/**/*"]
+  "include": ["./src/*"]
 }

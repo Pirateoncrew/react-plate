@@ -4,20 +4,26 @@ import React from "react";
 import ReactDomServer from "react-dom/server";
 import { StaticRouter } from "react-router";
 import { Helmet } from "react-helmet";
-import App from "./src/app";
+import { renderRoutes } from "react-router-config";
+import { Provider } from "react-redux";
+import store from "./src/store/index";
+import Routes from "./src/routes";
+import { matchRoutes } from "react-router-config";
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use(express.static("build/public"));
 
-app.get("*", (req, res) => {
+app.get("/*", (req, res) => {
   const context = {};
   const content = ReactDomServer.renderToString(
-    <StaticRouter location={req.url} context={context}>
-      <App />
-    </StaticRouter>
+    <Provider store={store}>
+      <StaticRouter location={req.url} context={context}>
+        <div>{renderRoutes(Routes)}</div>
+      </StaticRouter>
+    </Provider>
   );
   const helmet = Helmet.renderStatic();
   const html = `
@@ -38,5 +44,5 @@ app.get("*", (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`App running ${PORT}`);
+  console.log(`😎 Server is listening on port ${PORT}`);
 });
