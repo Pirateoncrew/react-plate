@@ -4,6 +4,9 @@ import Home from "./pages/homePageComponent";
 import "./style.scss";
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+  }
   render() {
     return (
       <Switch>

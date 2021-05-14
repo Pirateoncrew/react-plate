@@ -12,7 +12,7 @@ class Home extends React.Component {
     return (
       <div>
         {this.head()}
-        <p>Hello123</p>
+        <p>Hello World</p>
       </div>
     );
   }
