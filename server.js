@@ -8,7 +8,6 @@ import { renderRoutes } from "react-router-config";
 import { Provider } from "react-redux";
 import store from "./src/store/index";
 import Routes from "./src/routes";
-import { matchRoutes } from "react-router-config";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
